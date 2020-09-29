@@ -28,19 +28,13 @@ body, html {
     height: 70vh;
     z-index: 9999;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 16px 40px 0px;
+    border-radius: 15px;
   }
-}
-
-.header {
-  display: flex;
-  height: 64px;
-  border-bottom: 1px solid rgba(var(--sk_foreground_low,29,28,29),.13);
-  flex-shrink: 0;
 }
 
 .footer {
   display: flex;
   height: 64px;
-  border-top: 1px solid rgba(var(--sk_foreground_low,29,28,29),.13);
+  border-top: 1px solid rgba(29,28,29,.13);
   flex-shrink: 0;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import Header from './components/header';
 import List from './components/list';
 
 import styles from './widget.scss';
@@ -15,7 +16,7 @@ const SimplChatWidget = (props) => {
       }
       )}
     >
-      <div className={styles.header}></div>
+      <Header title="Hello 👋" />
       <List data={data} />
       <div className={styles.footer}></div>
     </div>

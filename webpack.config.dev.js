@@ -71,7 +71,14 @@ module.exports = {
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
-        use: 'url-loader'
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              esModule: false,
+            },
+          },
+        ],
       }
     ]
   },
