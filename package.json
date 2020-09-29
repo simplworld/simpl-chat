@@ -37,6 +37,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-standard": "^4.0.1",
+    "faker": "^5.1.0",
     "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
@@ -56,9 +57,11 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "dayjs": "^1.9.1",
     "postcss-flexbugs-fixes": "^4.2.1",
     "prop-types": "^15.7.2",
-    "react-window": "^1.8.5"
+    "react-resize-observer": "^1.1.1",
+    "react-virtualized": "^9.22.2"
   },
   "peerDependencies": {
     "react": "^16.13.1",

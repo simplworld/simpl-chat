@@ -1,0 +1,37 @@
+.avatar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+
+  img {
+    display: block;
+    border-radius: 10px;
+  }
+
+  &.small {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  &.medium {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  &.large {
+    width: 128px;
+    height: 128px;
+    font-size: 34px;
+  }
+
+  .content {
+    margin-top: 1px;
+  }
+}
