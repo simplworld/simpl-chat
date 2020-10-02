@@ -44,7 +44,12 @@ const Avatar = (props) => {
       title={name}
       style={{ backgroundColor: stringToColour(name) }}
     >
-      <div className={styles.content}>{content}</div>
+      <div className={classNames(
+        styles.content, {
+        [styles.hasImage]: href,
+      })}>
+        {content}
+      </div>
     </div>
   );
 };

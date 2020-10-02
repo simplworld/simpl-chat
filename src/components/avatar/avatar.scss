@@ -11,6 +11,8 @@
   img {
     display: block;
     border-radius: 10px;
+    width: 100%;
+    height: auto;
   }
 
   &.small {
@@ -33,5 +35,8 @@
 
   .content {
     margin-top: 1px;
+    &.hasImage {
+      margin: 0;
+    }
   }
 }

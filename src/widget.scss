@@ -17,18 +17,22 @@ body, html {
   overflow-y: hidden;
 
   &.fixedContainer {
-    bottom: 0;
     display: flex;
     flex-direction: column;
-    margin: 0 20px 20px 0;
-    max-width: 370px;
-    position: fixed;
-    right: 0;
-    width: 90vw;
-    height: 70vh;
+    height: 100%;
     z-index: 9999;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 16px 40px 0px;
-    border-radius: 15px;
+
+    @media only screen and (min-width: 600px ) {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      margin: 0 20px 20px 0;
+      max-width: 370px;
+      width: 90vw;
+      height: 70vh;
+      border-radius: 15px;
+    }
   }
 }
 
@@ -36,5 +40,48 @@ body, html {
   display: flex;
   height: 64px;
   border-top: 1px solid rgba(29,28,29,.13);
+
+
+}
+
+.chatInputWrapper {
+  position: relative;
+  display: flex;
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  flex-direction: row;
+  background-color: rgb(255, 255, 255);
+  flex-grow: 1;
   flex-shrink: 0;
+  flex-basis: auto;
+  align-items: flex-start;
+}
+
+.chatInput {
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  top: 4px;
+  display: block;
+  min-height: 40px;
+  max-height: 14em;
+  padding-top: 0px;
+  padding-right: 8px;
+  overflow-x: visible;
+  overflow-y: overlay;
+  color: rgb(24, 33, 44);
+  resize: none;
+  background-color: transparent;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  outline-style: none;
+
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: normal;
 }

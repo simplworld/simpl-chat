@@ -15,6 +15,7 @@ function generateMessages() {
       date: Date.now(),
       sender: `${faker.name.firstName()} ${faker.name.lastName()}`,
       message: faker.lorem.sentences(),
+      avatar: faker.image.avatar(),
     });
   }
 
@@ -23,7 +24,7 @@ function generateMessages() {
       id: 101,
       date: Date.now(),
       sender: 'Mark Wirblich',
-      message: faker.lorem.sentences(),
+      message: `👋 💩 🤪  ${faker.lorem.sentences()}`,
     },
     {
       id: 102,
@@ -37,7 +38,14 @@ function generateMessages() {
       sender: 'Mark Wirblich',
       message: faker.lorem.sentences(),
     },
+    {
+      id: 104,
+      date: Date.now(),
+      sender: 'Mark Wirblich',
+      message: 'Hi <b>hows it</b> going?',
+    },
   );
+  console.log(messages)
   return messages;
 }
 
@@ -47,7 +55,7 @@ const App = (props) => {
     <div className={styles.container}>
       <Widget
         data={list}
-      //fixedPosition
+        fixedPosition
       />
     </div>
   );

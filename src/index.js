@@ -18,7 +18,11 @@ const SimplChatWidget = (props) => {
     >
       <Header title="Hello 👋" />
       <List data={data} />
-      <div className={styles.footer}></div>
+      <div className={styles.footer}>
+        <div className={styles.chatInputWrapper}>
+          <textarea placeholder="Your message" className={styles.chatInput} />
+        </div>
+      </div>
     </div>
   );
 };

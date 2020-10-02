@@ -7,7 +7,7 @@ import Avatar from '../avatar';
 import styles from './list-item.scss';
 
 const ListItem = (props) => {
-  const { username, date, message, userID, previousUserID } = props;
+  const { username, date, message, userID, previousUserID, avatar } = props;
   const dayjsDate = dayjs(date);
   const timestamp = dayjsDate.format('h:mm A');
   const miniTimestamp = dayjsDate.format('h:mm');
@@ -24,7 +24,7 @@ const ListItem = (props) => {
 
           <div className={styles.columnLeft}>
             {!prevMsgSameSender && (
-              <Avatar name={username} />
+              <Avatar name={username} href={avatar} />
             )}
             {prevMsgSameSender && (
               <div className={styles.miniTimestamp}>

@@ -51,6 +51,7 @@ const MessageList = (props) => {
               username={data[index].sender}
               date={data[index].date}
               message={data[index].message}
+              avatar={data[index].avatar}
             />
           </div>
         )}
