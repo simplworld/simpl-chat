@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  height: 64px;
+  border-top: 1px solid rgba(29,28,29,.13);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  flex-direction: row;
+  background-color: rgb(255, 255, 255);
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-items: flex-start;
+}
+
+.input {
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  top: 4px;
+  display: block;
+  min-height: 40px;
+  max-height: 14em;
+  padding-top: 0px;
+  padding-right: 8px;
+  overflow-x: visible;
+  overflow-y: overlay;
+  color: rgb(24, 33, 44);
+  resize: none;
+  background-color: transparent;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  outline-style: none;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: normal;
+}
+
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.action {
+  position: relative;
+  display: block;
+  flex: 1 1 auto;
+  color: #858585;
+  text-align: center;
+  padding: 12px 4px;
+  overflow: hidden;
+  transition: color .1s ease-out;
+  margin: 0;
+  box-shadow: none;
+  background: none;
+  border: none;
+  &:hover {
+    color: #464646;
+  }
+  svg {
+    fill: currentColor;
+    height: 18px;
+    width: 18px;
+  }
+}
+
+.emojiPicker {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+}

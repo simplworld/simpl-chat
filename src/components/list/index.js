@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
 import {
   List, CellMeasurer, CellMeasurerCache, AutoSizer
@@ -11,12 +11,25 @@ import styles from './list.scss';
 
 const MessageList = (props) => {
   const { data } = props;
-
+  // const list = useRef(null);
+  const [list, setList] = useState()
   const cache = new CellMeasurerCache({
     fixedWidth: true,
     minHeight: 50,
   });
 
+  useEffect(() => {
+    console.log('useEffect')
+    if (data.length > 0 && list) {
+      list.scrollToRow(data.length - 1);
+    }
+  }, [data]);
+
+  const blasetList = (l) => {
+    setList(l);
+    console.log(l)
+  }
+  console.log(list)
   function rowRenderer({
     key, // Unique key within array of rows
     index, // Index of row within collection
@@ -68,6 +81,7 @@ const MessageList = (props) => {
       <AutoSizer>
         {({ width, height }) => (
           <List
+            ref={blasetList}
             width={width}
             height={height}
             rowCount={data.length}

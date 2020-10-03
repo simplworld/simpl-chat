@@ -59,9 +59,13 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "dayjs": "^1.9.1",
+    "emoji-mart": "^3.0.0",
+    "keyboardjs": "^2.6.4",
     "postcss-flexbugs-fixes": "^4.2.1",
     "prop-types": "^15.7.2",
+    "react-linkify": "^1.0.0-alpha",
     "react-resize-observer": "^1.1.1",
+    "react-use": "^15.3.4",
     "react-virtualized": "^9.22.2"
   },
   "peerDependencies": {

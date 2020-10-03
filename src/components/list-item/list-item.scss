@@ -84,4 +84,12 @@
   font-size: 14px;
   font-weight: 400;
   color: #504f50;
+  a {
+    color: rgb(18, 100, 163);
+    text-decoration: none;
+    &:hover {
+      color: rgb(11,76,140);
+      text-decoration: underline;
+    }
+  }
 }

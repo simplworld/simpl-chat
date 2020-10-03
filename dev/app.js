@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import faker from 'faker';
 
 import { Widget } from '../index';
@@ -7,8 +7,8 @@ import styles from './app.scss';
 
 function generateMessages() {
   const messageCount = 100;
-  const messages = [];
 
+  const messages = [];
   for (let id = 1; id <= messageCount; id += 1) {
     messages.push({
       id,
@@ -42,20 +42,36 @@ function generateMessages() {
       id: 104,
       date: Date.now(),
       sender: 'Mark Wirblich',
-      message: 'Hi <b>hows it</b> going?',
+      message: 'Hi hows it going? https://github.com/simplworld/simpl-chat/invitations check this out',
     },
   );
-  console.log(messages)
   return messages;
 }
 
 const App = (props) => {
-  const list = generateMessages();
+  const [messages, setMessages] = useState(generateMessages());
+
+  const handleSubmit = (message) => {
+    const newMessage = {
+      id: messages[messages.length - 1].id + 1,
+      date: Date.now(),
+      sender: 'Mark Wirblich',
+      message,
+    };
+    console.log(newMessage);
+    setMessages(messages => [...messages, newMessage]);
+
+    //setMessages(messages.push(newMessage));
+  };
+
+  console.log(messages);
+
   return (
     <div className={styles.container}>
       <Widget
-        data={list}
+        data={messages}
         fixedPosition
+        handleSubmit={handleSubmit}
       />
     </div>
   );

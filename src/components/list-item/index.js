@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
+import Linkify from 'react-linkify';
 
 import Avatar from '../avatar';
 
@@ -42,7 +43,7 @@ const ListItem = (props) => {
                 <br />
               </React.Fragment>
             )}
-            <div className={styles.message}>{message}</div>
+            <div className={styles.message}><Linkify>{message}</Linkify></div>
           </div>
 
         </div>
