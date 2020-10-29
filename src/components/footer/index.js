@@ -9,7 +9,7 @@ import { Picker } from 'emoji-mart';
 import styles from './footer.scss';
 
 const Footer = (props) => {
-  const { handleSubmit, className } = props;
+  const { handleSubmit, footerClassName } = props;
   const [showEmojis, setShowEmojis] = useState(false);
   const [text, setText] = useState('');
   const [isEnterPressed] = useKeyboardJs('enter');
@@ -41,7 +41,7 @@ const Footer = (props) => {
   return (
     <div
       className={classNames(
-        styles.container, className
+        styles.container, footerClassName
       )}
     >
       {showEmojis && (
@@ -67,12 +67,15 @@ const Footer = (props) => {
 
 Footer.propTypes = {
   handleSubmit: PropTypes.func,
-  className: PropTypes.string,
+  footerClassName: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
 };
 
 Footer.defaultProps = {
   handleSubmit: () => { },
-  className: null,
+  footerClassName: null,
 };
 
 export default Footer;

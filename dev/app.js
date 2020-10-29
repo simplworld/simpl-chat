@@ -42,7 +42,7 @@ function generateMessages() {
       id: 104,
       date: Date.now(),
       sender: 'Mark Wirblich',
-      message: 'Hi hows it going? https://github.com/simplworld/simpl-chat/invitations check this out',
+      message: 'Hi hows it going? https://github.com/simplworld/simpl-chat/ check this out',
     },
   );
   return messages;
@@ -58,13 +58,8 @@ const App = (props) => {
       sender: 'Mark Wirblich',
       message,
     };
-    console.log(newMessage);
     setMessages(messages => [...messages, newMessage]);
-
-    //setMessages(messages.push(newMessage));
   };
-
-  console.log(messages);
 
   return (
     <div className={styles.container}>

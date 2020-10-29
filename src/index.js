@@ -10,7 +10,8 @@ import styles from './widget.scss';
 
 const SimplChatWidget = (props) => {
   const {
-    fixedPosition, data, handleSubmit, title, readOnly
+    fixedPosition, data, className, headerClassName, footerClassName,
+    handleSubmit, title, readOnly,
   } = props;
 
   return (
@@ -18,13 +19,20 @@ const SimplChatWidget = (props) => {
       className={classNames(
         styles.container, {
         [styles.fixedContainer]: fixedPosition
-      }
+      },
+      className
       )}
     >
-      <Header title={title} />
+      <Header
+        title={title}
+        headerClassName={headerClassName}
+      />
       <List data={data} />
       {!readOnly && (
-        <Footer handleSubmit={handleSubmit} />
+        <Footer
+          handleSubmit={handleSubmit}
+          footerClassName={footerClassName}
+        />
       )}
     </div>
   );
@@ -33,6 +41,18 @@ const SimplChatWidget = (props) => {
 SimplChatWidget.propTypes = {
   title: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object),
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+  headerClassName: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+  footerClassName: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
   readOnly: PropTypes.bool,
   fixedPosition: PropTypes.bool,
   handleSubmit: PropTypes.func,
@@ -41,6 +61,9 @@ SimplChatWidget.propTypes = {
 SimplChatWidget.defaultProps = {
   title: 'Hello 👋',
   data: [],
+  className: null,
+  headerClassName: null,
+  footerClassName: null,
   readOnly: false,
   fixedPosition: false,
   handleSubmit: () => {},
