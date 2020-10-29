@@ -30,6 +30,7 @@ const MessageList = (props) => {
     console.log(l)
   }
   console.log(list)
+
   function rowRenderer({
     key, // Unique key within array of rows
     index, // Index of row within collection
