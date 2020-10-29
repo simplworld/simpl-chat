@@ -7,7 +7,7 @@ import List from './components/list';
 import styles from './widget.scss';
 
 const SimplChatWidget = (props) => {
-  const { fixedPosition, data, title } = props;
+  const { fixedPosition, data, title, readOnly } = props;
 
   return (
     <div
@@ -19,17 +19,20 @@ const SimplChatWidget = (props) => {
     >
       <Header title={title} />
       <List data={data} />
-      <div className={styles.footer}>
-        <div className={styles.chatInputWrapper}>
-          <textarea placeholder="Your message" className={styles.chatInput} />
+      {!readOnly &&
+        <div className={styles.footer}>
+          <div className={styles.chatInputWrapper}>
+            <textarea placeholder="Your message" className={styles.chatInput} />
+          </div>
         </div>
-      </div>
+      }
     </div>
   );
 };
 
 SimplChatWidget.defaultProps = {
   title: "Hello 👋",
+  readOnly: false,
 };
 
 export default SimplChatWidget;
