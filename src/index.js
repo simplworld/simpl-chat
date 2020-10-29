@@ -7,7 +7,8 @@ import List from './components/list';
 import styles from './widget.scss';
 
 const SimplChatWidget = (props) => {
-  const { fixedPosition, data } = props;
+  const { fixedPosition, data, title } = props;
+
   return (
     <div
       className={classNames(
@@ -16,7 +17,7 @@ const SimplChatWidget = (props) => {
       }
       )}
     >
-      <Header title="Hello 👋" />
+      <Header title={title} />
       <List data={data} />
       <div className={styles.footer}>
         <div className={styles.chatInputWrapper}>
@@ -25,6 +26,10 @@ const SimplChatWidget = (props) => {
       </div>
     </div>
   );
+};
+
+SimplChatWidget.defaultProps = {
+  title: "Hello 👋",
 };
 
 export default SimplChatWidget;
