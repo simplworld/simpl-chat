@@ -6,7 +6,7 @@ import { Widget } from '../index';
 import styles from './app.scss';
 
 function generateMessages() {
-  const messageCount = 100;
+  const messageCount = 50;
 
   const messages = [];
   for (let id = 1; id <= messageCount; id += 1) {
@@ -15,31 +15,31 @@ function generateMessages() {
       date: Date.now(),
       sender: `${faker.name.firstName()} ${faker.name.lastName()}`,
       message: faker.lorem.sentences(),
-      avatar: faker.image.avatar(),
+      // avatar: faker.image.avatar(),
     });
   }
 
   messages.push(
     {
-      id: 101,
+      id: 51,
       date: Date.now(),
       sender: 'Mark Wirblich',
       message: `👋 💩 🤪  ${faker.lorem.sentences()}`,
     },
     {
-      id: 102,
+      id: 52,
+      date: 1206080923628,
+      sender: 'Mark Wirblich',
+      message: faker.lorem.sentences(),
+    },
+    {
+      id: 53,
       date: Date.now(),
       sender: 'Mark Wirblich',
       message: faker.lorem.sentences(),
     },
     {
-      id: 103,
-      date: Date.now(),
-      sender: 'Mark Wirblich',
-      message: faker.lorem.sentences(),
-    },
-    {
-      id: 104,
+      id: 54,
       date: Date.now(),
       sender: 'Mark Wirblich',
       message: 'Hi hows it going? https://github.com/simplworld/simpl-chat/ check this out',
@@ -50,7 +50,7 @@ function generateMessages() {
 
 const App = (props) => {
   const [messages, setMessages] = useState(generateMessages());
-
+  console.log(messages);
   const handleSubmit = (message) => {
     const newMessage = {
       id: messages[messages.length - 1].id + 1,
@@ -67,6 +67,7 @@ const App = (props) => {
         data={messages}
         fixedPosition
         handleSubmit={handleSubmit}
+        headerClassName={styles.bla}
       />
     </div>
   );

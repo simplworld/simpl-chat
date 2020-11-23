@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import {
   List, CellMeasurer, CellMeasurerCache, AutoSizer
 } from 'react-virtualized';
@@ -11,25 +12,32 @@ import styles from './list.scss';
 
 const MessageList = (props) => {
   const { data } = props;
-  // const list = useRef(null);
-  const [list, setList] = useState()
+
+  const [list, setList] = useState();
+  const [scrollIndex, setScrollIndex] = useState();
+
   const cache = new CellMeasurerCache({
     fixedWidth: true,
-    minHeight: 50,
+    minHeight: 30,
   });
 
   useEffect(() => {
-    console.log('useEffect')
-    if (data.length > 0 && list) {
-      list.scrollToRow(data.length - 1);
-    }
+    setScrollIndex(data.length);
   }, [data]);
 
-  const blasetList = (l) => {
+  useEffect(() => {
+    if (data.length > 0 && list) {
+      list.scrollToRow(data.length);
+    }
+  }, [data, list]);
+
+  const theList = (l) => {
     setList(l);
-    console.log(l)
-  }
-  console.log(list)
+  };
+
+  const handleScroll = () => {
+    setScrollIndex(undefined);
+  };
 
   function rowRenderer({
     key, // Unique key within array of rows
@@ -40,9 +48,11 @@ const MessageList = (props) => {
     parent
   }) {
     let previousUserID = false;
+    let previousDate = false;
 
     if (data[index - 1]) {
-      previousUserID = data[index - 1].sender
+      previousUserID = data[index - 1].sender;
+      previousDate = data[index - 1].date;
     }
 
     return (
@@ -50,6 +60,8 @@ const MessageList = (props) => {
         cache={cache}
         columnIndex={0}
         key={key}
+        // removing parent fixes the issue with scrollTo not targeting the last item
+        // though its required ...
         parent={parent}
         rowIndex={index}
       >
@@ -64,8 +76,9 @@ const MessageList = (props) => {
               previousUserID={previousUserID}
               username={data[index].sender}
               date={data[index].date}
+              previousDate={previousDate}
               message={data[index].message}
-              avatar={data[index].avatar}
+              avatarURL={data[index].avatar}
             />
           </div>
         )}
@@ -82,17 +95,27 @@ const MessageList = (props) => {
       <AutoSizer>
         {({ width, height }) => (
           <List
-            ref={blasetList}
+            ref={theList}
             width={width}
             height={height}
             rowCount={data.length}
             rowHeight={cache.rowHeight}
             rowRenderer={rowRenderer}
+            deferredMeasurementCache={cache}
+            scrollToIndex={scrollIndex}
+            onScroll={handleScroll}
           />
         )}
       </AutoSizer>
     </div>
   );
+};
+
+MessageList.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+MessageList.defaultProps = {
 };
 
 export default MessageList;

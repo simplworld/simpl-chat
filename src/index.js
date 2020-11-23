@@ -18,7 +18,7 @@ const SimplChatWidget = (props) => {
     <div
       className={classNames(
         styles.container, {
-        [styles.fixedContainer]: fixedPosition
+        // [styles.fixedContainer]: fixedPosition
       },
       className
       )}

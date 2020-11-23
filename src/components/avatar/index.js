@@ -19,7 +19,7 @@ function stringToColour(str) {
 
 const Avatar = (props) => {
   const {
-    name, small, medium, large, href, badge
+    name, small, medium, large, avatarURL, badge
   } = props;
   const letters = name.replace(/(\w)[^ ]+/g, '$1').replace(/[^\w]/, '').substring(0, 2) || '??';
 
@@ -33,8 +33,8 @@ const Avatar = (props) => {
 
   let content = letters;
 
-  if (href) {
-    content = <img src={href} alt={name} />;
+  if (avatarURL) {
+    content = <img src={avatarURL} alt={name} />;
   }
 
   return (
@@ -46,7 +46,7 @@ const Avatar = (props) => {
     >
       <div className={classNames(
         styles.content, {
-        [styles.hasImage]: href,
+        [styles.hasImage]: avatarURL,
       })}>
         {content}
       </div>
@@ -60,7 +60,7 @@ Avatar.propTypes = {
   small: PropTypes.bool,
   medium: PropTypes.bool,
   large: PropTypes.bool,
-  href: PropTypes.string,
+  avatarURL: PropTypes.string,
 };
 
 Avatar.defaultProps = {
