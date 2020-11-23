@@ -35,10 +35,6 @@ const MessageList = (props) => {
     setList(l);
   };
 
-  const handleScroll = () => {
-    setScrollIndex(undefined);
-  };
-
   function rowRenderer({
     key, // Unique key within array of rows
     index, // Index of row within collection
@@ -103,7 +99,6 @@ const MessageList = (props) => {
             rowRenderer={rowRenderer}
             deferredMeasurementCache={cache}
             scrollToIndex={scrollIndex}
-            onScroll={handleScroll}
           />
         )}
       </AutoSizer>
