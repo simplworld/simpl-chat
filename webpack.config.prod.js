@@ -2,7 +2,7 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -24,15 +24,29 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js(x?)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
       {
         test: /\.scss$/,
+        exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'style-loader',
+            // options: { hmr: true }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              modules: true,
+              sourceMap: true,
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              }
+            }
+          },
           {
             loader: 'postcss-loader',
             options: {
@@ -47,19 +61,29 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
+            // options: {
+            //   includePaths: [path.resolve(__dirname, 'src/scss')]
+            // }
           }
         ]
       },
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
         test: /\.(jpg|png|gif|svg)$/,
         use: {
-          loader: 'url-loader'
+          loader: 'url-loader',
+          options: {
+            esModule: false,
+          },
         }
       }
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['lib']),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'styles.css',
       chunkFileName: '[id].css'
