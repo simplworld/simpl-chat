@@ -9,7 +9,7 @@ A small but flexible chat UI components for use with the [Simpl framework](https
 Clone this repository, move into the repository and install the NPM dependencies:
 
 ```shell
-$ npm install .
+$ npm install
 ```
 
 ### Start development server
