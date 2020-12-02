@@ -15,11 +15,23 @@ module.exports = {
     library: 'simpl-chat-widget',
     libraryTarget: 'umd'
   },
-  // resolve: {
-  //   extensions: ['.jsx', '.js']
-  // },
+  resolve: {
+    extensions: ['*', '.mjs', '.js', '.jsx'],
+    modules: ['node_modules', 'src'],
+  },
   externals: {
-    react: 'react'
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React'
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'ReactDOM',
+      root: 'ReactDOM'
+    }
   },
   target: 'web',
   mode: 'production',
