@@ -3,5 +3,19 @@
     "@babel/preset-env",
     "@babel/preset-react",
   ],
-  "plugins": ["@babel/plugin-proposal-class-properties"]
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "@babel/preset-react",
+          {
+            "development": true
+          }
+        ]
+      ]
+    }
+  },
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ]
 }

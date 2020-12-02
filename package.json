@@ -2,7 +2,7 @@
   "name": "simpl-chat",
   "version": "0.0.1",
   "description": "Chat widget for Simpl framework",
-  "main": "app.js",
+  "main": "lib/index.js",
   "repository": "git@github.com:simplworld/simpl-chat.git",
   "author": "Mark Wirblich <mark@wirblich.com>",
   "license": "GNU",
