@@ -1,6 +1,5 @@
 'use strict'
 
-const webpack = require('webpack');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -34,7 +33,6 @@ module.exports = {
         use: [
           {
             loader: 'style-loader',
-            // options: { hmr: true }
           },
           {
             loader: 'css-loader',
@@ -61,9 +59,6 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
-            // options: {
-            //   includePaths: [path.resolve(__dirname, 'src/scss')]
-            // }
           }
         ]
       },
@@ -89,6 +84,22 @@ module.exports = {
       chunkFileName: '[id].css'
     }),
   ],
+  externals: {
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react',
+      umd: 'react',
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom',
+      umd: 'react-dom',
+    },
+  },
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
