@@ -4,7 +4,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -15,11 +15,11 @@ module.exports = {
     library: 'simpl-chat-widget',
     libraryTarget: 'umd'
   },
-  resolve: {
-    extensions: ['.jsx', '.js']
-  },
+  // resolve: {
+  //   extensions: ['.jsx', '.js']
+  // },
   externals: {
-    react: 'React'
+    react: 'react'
   },
   target: 'web',
   mode: 'production',
@@ -88,10 +88,7 @@ module.exports = {
   ],
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true
-      }),
+      new TerserPlugin(),
       new OptimizeCSSAssetsPlugin({})
     ]
   }

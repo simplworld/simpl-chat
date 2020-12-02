@@ -9,7 +9,7 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   entry: {
     main: path.resolve(__dirname, 'dev/index.js'),
-    vendor: ['react', 'react-dom']
+    vendor: ['react']
   },
   output: {
     path: path.join(__dirname, 'dist'),
