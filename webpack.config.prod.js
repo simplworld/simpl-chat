@@ -30,9 +30,23 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'style-loader',
+            // options: { hmr: true }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              modules: true,
+              sourceMap: true,
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              }
+            }
+          },
           {
             loader: 'postcss-loader',
             options: {
@@ -47,6 +61,9 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
+            // options: {
+            //   includePaths: [path.resolve(__dirname, 'src/scss')]
+            // }
           }
         ]
       },
