@@ -1,6 +1,6 @@
 {
   "name": "simpl-chat",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Chat widget for Simpl framework",
   "main": "lib/index.js",
   "repository": "git@github.com:simplworld/simpl-chat.git",
