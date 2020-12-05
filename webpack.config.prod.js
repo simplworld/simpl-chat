@@ -26,6 +26,13 @@ module.exports = {
       amd: 'React',
       root: 'React'
     },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'ReactDOM',
+      root: 'ReactDOM'
+
+    }
   },
   target: 'web',
   mode: 'production',
@@ -85,6 +92,7 @@ module.exports = {
       }
     ]
   },
+  devtool: 'source-map',
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
