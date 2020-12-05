@@ -86,7 +86,8 @@ const MessageList = (props) => {
     <div
       className={classNames(
         styles.container, {
-      })}
+        }
+      )}
     >
       <AutoSizer>
         {({ width, height }) => (
