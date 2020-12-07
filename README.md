@@ -28,6 +28,10 @@ Or you may want the UI provided by simpl-chat to expand to fill it's container l
 
 This is enabled by passing the property `fixedPosition` to `<Widget />`.
 
+There is also included an emoji browser for a better user experience:
+
+![emoji browser screenshot](https://github.com/simplworld/simpl-chat/blob/master/images/emoji-browser.png?raw=true)
+
 ### Start development server
 
 Clone this repository, move into the repository and install the NPM dependencies:
