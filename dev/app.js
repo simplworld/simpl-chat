@@ -65,7 +65,6 @@ const App = (props) => {
     <div className={styles.container}>
       <Widget
         data={messages}
-        fixedPosition
         handleSubmit={handleSubmit}
         headerClassName={styles.bla}
       />
