@@ -32,6 +32,24 @@ There is also included an emoji browser for a better user experience:
 
 ![emoji browser screenshot](https://github.com/simplworld/simpl-chat/blob/master/images/emoji-browser.png?raw=true)
 
+### Properties / Options
+
+Example usage:
+
+```jsx
+import { Widget } from 'simpl-chat';
+
+const ChatUI = (props) => {
+    const {title, data} = props;
+
+    return(
+        <Widget
+            title={title}
+            data={data}
+        />
+    );
+};
+```
 ### Start development server
 
 Clone this repository, move into the repository and install the NPM dependencies:
